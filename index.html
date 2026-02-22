@@ -7,145 +7,162 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    .hero-bg { 
-      background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437516.jpg'); 
-      background-size: cover; background-position: center; 
-    }
-    .product-card { transition: all 0.3s; }
-    .product-card:hover { transform: scale(1.05); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-    .active-tab { border-bottom: 3px solid #db2777; font-weight: 700; }
+    .hero-bg { background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437516.jpg'); background-size: cover; background-position: center; }
+    .product-card { transition: all 0.3s ease; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+    .tab-btn { transition: all 0.2s; }
+    .active-tab { border-bottom: 4px solid #db2777; font-weight: 700; color: #db2777; }
   </style>
 </head>
 <body class="bg-pink-50 font-sans">
 
-  <!-- NAVBAR WITH MORE TABS -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-pink-600">TM Bags Plus</h1>
-      <div class="flex gap-8 text-sm font-medium">
+  <!-- PROFESSIONAL NAVBAR (MOBILE HAMBURGER) -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-pink-600">TM Bags Plus</h1>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
         <a href="#home" class="hover:text-pink-600">Home</a>
         <a href="#shop" class="hover:text-pink-600">Shop All</a>
         <a href="#collections" class="hover:text-pink-600">Collections</a>
         <a href="#about" class="hover:text-pink-600">About</a>
-        <a href="#contact" class="hover:text-pink-600">Contact</a>
-        <a href="https://wa.me/256702428295" target="_blank" class="bg-green-500 text-white px-6 py-2.5 rounded-full flex items-center gap-2 hover:bg-green-600">
-          <i class="fab fa-whatsapp text-2xl"></i>
-        </a>
       </div>
+      <div class="flex items-center gap-4">
+        <a href="https://wa.me/256702428295" class="bg-green-500 text-white px-6 py-3 rounded-full flex items-center gap-2 text-sm font-medium hover:bg-green-600">
+          <i class="fab fa-whatsapp text-xl"></i> Chat
+        </a>
+        <button id="menu-btn" class="md:hidden text-3xl text-pink-600">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-6 py-8 flex flex-col gap-6 text-lg font-medium">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop All</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <!-- SWEET HELLO HERO -->
   <section id="home" class="hero-bg h-screen flex items-center text-white">
-    <div class="max-w-4xl mx-auto text-center px-6">
-      <h1 class="text-7xl font-bold mb-4 tracking-tight">Hello! 👋</h1>
-      <p class="text-4xl mb-2">Welcome to TM Bags Plus</p>
-      <p class="text-2xl mb-10">Elegant bags that make you feel beautiful every day</p>
-      <a href="#shop" class="inline-block bg-white text-pink-600 text-2xl font-bold px-12 py-6 rounded-full hover:bg-pink-100">
-        Shop Now
-      </a>
-      <a href="https://wa.me/256702428295?text=Hello%20TM%20Bags%20Plus%2C%20I%20saw%20your%20website%20and%20I%20love%20it%21" 
-         class="ml-4 inline-block bg-green-500 text-white text-2xl font-bold px-12 py-6 rounded-full hover:bg-green-600">
-        Chat on WhatsApp
-      </a>
+    <div class="max-w-xl mx-auto text-center px-6">
+      <h1 class="text-6xl md:text-7xl font-bold mb-4 tracking-tight">Hello! 👋</h1>
+      <p class="text-3xl md:text-4xl mb-8">Welcome to TM Bags Plus</p>
+      <p class="text-xl md:text-2xl mb-12">Elegant bags from Angel’s Plaza, Nabugabo Road</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#shop" class="bg-white text-pink-600 font-bold text-lg px-12 py-5 rounded-full">Shop Collection</a>
+        <a href="https://wa.me/256702428295?text=Hello%20TM%20Bags%20Plus%20👋%20I%20love%20your%20site!" class="bg-green-500 text-white font-bold text-lg px-12 py-5 rounded-full">Chat on WhatsApp</a>
+      </div>
     </div>
   </section>
 
-  <!-- SHOP ALL (MEDIUM CARDS) -->
-  <section id="shop" class="max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-5xl font-bold text-center mb-4">Shop All Bags</h2>
-    <p class="text-center text-gray-600 mb-12">Medium size, premium quality – direct from Angel’s Plaza, Nabugabo Road</p>
-    
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- 15+ medium product cards (add more the same way) -->
-      <div class="product-card bg-white rounded-3xl overflow-hidden shadow">
-        <img src="https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437492.jpg" class="w-full h-80 object-cover">
-        <div class="p-6">
-          <h3 class="font-semibold text-xl">Chrisbella Maroon & Beige Chain Bag</h3>
-          <p class="text-pink-600 font-bold text-3xl mt-2">UGX 145,000</p>
-          <a href="https://wa.me/256702428295?text=Hi%20I%20want%20the%20Chrisbella%20Maroon%20Beige%20Chain%20Bag%20-%20UGX%20145%2C000" 
-             class="mt-6 block text-center bg-green-500 text-white py-4 rounded-2xl font-medium">Buy on WhatsApp</a>
-        </div>
-      </div>
-
-      <!-- Repeat for other images (LV, YSL, gold clutch, navy, black, red, beige tote, etc.) -->
-      <!-- Example 2 -->
-      <div class="product-card bg-white rounded-3xl overflow-hidden shadow">
-        <img src="https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437550.jpg" class="w-full h-80 object-cover">
-        <div class="p-6">
-          <h3 class="font-semibold text-xl">LV Monogram Brown Crossbody</h3>
-          <p class="text-pink-600 font-bold text-3xl mt-2">UGX 165,000</p>
-          <a href="https://wa.me/256702428295?text=Hi%20I%20want%20the%20LV%20Monogram%20Brown%20-%20UGX%20165%2C000" class="mt-6 block text-center bg-green-500 text-white py-4 rounded-2xl font-medium">Buy on WhatsApp</a>
-        </div>
-      </div>
-
-      <!-- Add your remaining 13+ bags here the same way (YSL quilted, gold clutch 1001437538, navy Chrisbella, black Chrisbella, red LV, etc.) -->
-    </div>
-  </section>
-
-  <!-- COLLECTIONS WITH TABS -->
-  <section id="collections" class="bg-white py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-12">Our Collections</h2>
+  <!-- SHOP ALL – MEDIUM CARDS (PERFECT ON PHONE) -->
+  <section id="shop" class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-4">Shop All Bags</h2>
+    <p class="text-center text-gray-600 mb-12">Premium quality • Medium size • Direct from Nabugabo</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
-      <!-- TAB BUTTONS -->
-      <div class="flex justify-center gap-8 border-b mb-12 text-lg">
-        <button onclick="showTab(0)" class="active-tab pb-4 px-8 tab-btn">All</button>
-        <button onclick="showTab(1)" class="pb-4 px-8 tab-btn">Chrisbella</button>
-        <button onclick="showTab(2)" class="pb-4 px-8 tab-btn">Luxury Monogram</button>
-        <button onclick="showTab(3)" class="pb-4 px-8 tab-btn">Quilted Designer</button>
-        <button onclick="showTab(4)" class="pb-4 px-8 tab-btn">Evening</button>
+      <!-- 12 REAL PRODUCTS FROM YOUR PHOTOS -->
+      <div class="product-card bg-white rounded-3xl overflow-hidden shadow">
+        <img src="https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437492.jpg" alt="Chrisbella Maroon Beige" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="font-semibold">Chrisbella Maroon & Beige Chain Bag</h3>
+          <p class="text-pink-600 font-bold text-2xl mt-2">UGX 145,000</p>
+          <a href="https://wa.me/256702428295?text=I%20want%20Chrisbella%20Maroon%20Beige%20-%20UGX%20145%2C000" class="mt-6 block bg-green-500 text-white text-center py-4 rounded-2xl font-medium">Buy on WhatsApp</a>
+        </div>
       </div>
 
-      <!-- Tab content grids will appear here – same medium cards as above but filtered by JS -->
-      <div id="tab-content" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- JS will fill this dynamically – you can copy cards here for each category -->
+      <div class="product-card bg-white rounded-3xl overflow-hidden shadow">
+        <img src="https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437550.jpg" alt="LV Monogram Brown" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="font-semibold">LV Monogram Brown Crossbody</h3>
+          <p class="text-pink-600 font-bold text-2xl mt-2">UGX 165,000</p>
+          <a href="https://wa.me/256702428295?text=I%20want%20LV%20Monogram%20Brown%20-%20UGX%20165%2C000" class="mt-6 block bg-green-500 text-white text-center py-4 rounded-2xl font-medium">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product-card bg-white rounded-3xl overflow-hidden shadow">
+        <img src="https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437530.jpg" alt="YSL Quilted Brown" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="font-semibold">YSL Quilted Brown Flap Bag</h3>
+          <p class="text-pink-600 font-bold text-2xl mt-2">UGX 155,000</p>
+          <a href="https://wa.me/256702428295?text=I%20want%20YSL%20Quilted%20Brown%20-%20UGX%20155%2C000" class="mt-6 block bg-green-500 text-white text-center py-4 rounded-2xl font-medium">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product-card bg-white rounded-3xl overflow-hidden shadow">
+        <img src="https://raw.githubusercontent.com/YOUR-USERNAME/tmbagsplus/main/images/1001437538.jpg" alt="Gold Evening Clutch" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="font-semibold">Gold Diamond Evening Clutch</h3>
+          <p class="text-pink-600 font-bold text-2xl mt-2">UGX 95,000</p>
+          <a href="https://wa.me/256702428295?text=I%20want%20Gold%20Diamond%20Clutch%20-%20UGX%2095%2C000" class="mt-6 block bg-green-500 text-white text-center py-4 rounded-2xl font-medium">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Add the rest of your bags the same way (navy, black, red LV, beige tote, etc.) -->
+      <!-- Example 5-12: copy the block above and change image ID, name, price, WhatsApp text -->
+      
+    </div>
+  </section>
+
+  <!-- COLLECTIONS TABS -->
+  <section id="collections" class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10">Our Collections</h2>
+      <div class="flex overflow-x-auto gap-8 pb-6 text-sm font-medium whitespace-nowrap">
+        <button onclick="showTab(0)" class="tab-btn active-tab pb-3 px-8">All</button>
+        <button onclick="showTab(1)" class="tab-btn pb-3 px-8">Chrisbella</button>
+        <button onclick="showTab(2)" class="tab-btn pb-3 px-8">Luxury Monogram</button>
+        <button onclick="showTab(3)" class="tab-btn pb-3 px-8">Quilted</button>
+        <button onclick="showTab(4)" class="tab-btn pb-3 px-8">Evening</button>
+      </div>
+      <div id="tab-content" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Same cards as Shop All – you can duplicate for each tab later -->
       </div>
     </div>
   </section>
 
-  <!-- ABOUT (MOVED DOWN NEAR LOCATION) -->
-  <section id="about" class="max-w-7xl mx-auto px-6 py-20 bg-pink-50">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-5xl font-bold mb-8">About TM Bags Plus</h2>
-      <p class="text-xl leading-relaxed">We are your favourite handbag destination right at Angel’s Plaza on Nabugabo Road, Kampala. We carefully select premium Chrisbella bags and luxury-inspired designs so every woman in Uganda can carry elegance every day at honest prices.</p>
-      <div class="mt-12 bg-white p-10 rounded-3xl shadow">
+  <!-- ABOUT + LOCATION (EXACTLY WHERE YOU WANTED) -->
+  <section id="about" class="max-w-7xl mx-auto px-4 py-16 bg-pink-50">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">About TM Bags Plus</h2>
+      <p class="text-lg">Your trusted handbag destination at Angel’s Plaza, Nabugabo Road, Kampala. We bring premium Chrisbella and luxury-inspired designs at honest prices.</p>
+      <div class="mt-12 bg-white p-8 rounded-3xl shadow">
         <p class="text-2xl font-medium">📍 Angel's Plaza, Nabugabo Road, Kampala</p>
-        <p class="mt-6 text-lg">Same-day collection or delivery • 7-day exchange • 1000+ happy customers</p>
+        <p class="mt-4">Same-day delivery • 7-day exchange • Visit us or order now</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="max-w-7xl mx-auto px-6 py-20">
-    <div class="text-center">
-      <h2 class="text-5xl font-bold mb-6">Get in Touch</h2>
-      <a href="https://wa.me/256702428295" class="text-3xl text-green-600 font-medium flex items-center gap-4 justify-center hover:underline">
-        <i class="fab fa-whatsapp text-5xl"></i> +256 702 428295
-      </a>
-      <p class="mt-4 text-gray-600">We reply instantly on WhatsApp!</p>
-    </div>
+  <section id="contact" class="text-center py-16">
+    <a href="https://wa.me/256702428295" class="inline-flex items-center gap-4 text-3xl text-green-600 font-medium">
+      <i class="fab fa-whatsapp text-6xl"></i> +256 702 428295
+    </a>
   </section>
 
   <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/256702428295?text=Hello%20TM%20Bags%20Plus%20from%20your%20website!" 
-     class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-4xl z-50 hover:scale-110">
+  <a href="https://wa.me/256702428295?text=Hello%20from%20TM%20Bags%20Plus%20website%20👋" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-4xl z-50">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-white py-12 text-center">
-    <p class="text-3xl font-bold mb-3">TM Bags Plus</p>
-    <p>Angel's Plaza, Nabugabo Road, Kampala, Uganda</p>
-    <p class="mt-8">© 2026 • All rights reserved</p>
+    <p class="text-3xl font-bold">TM Bags Plus</p>
+    <p class="mt-3">Angel's Plaza, Nabugabo Road, Kampala, Uganda</p>
+    <p class="mt-8 text-sm">© 2026 TM Bags Plus – All rights reserved</p>
   </footer>
 
   <script>
+    // Hamburger
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
     function showTab(n) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-tab'));
       document.querySelectorAll('.tab-btn')[n].classList.add('active-tab');
-      // In real use you can filter cards by category – for now all cards show (easy to expand)
-      alert('Tab ' + (n+1) + ' selected – add your filtered cards here!');
     }
   </script>
 </body>
